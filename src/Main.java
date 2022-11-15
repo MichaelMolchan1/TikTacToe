@@ -54,6 +54,12 @@ public class Main
 
 
     }
+
+    /**
+     * Player move takes an attempted user move and commits it to the board if its valid.
+     * @param pipe This is the import for the scanner
+     * @param player This is the player either X or O
+     */
     private static void playerMove(Scanner pipe, String player)
     {
         boolean done = false;
@@ -75,6 +81,11 @@ public class Main
             }
         } while (!done);
     }
+
+    /**
+     * This code takes the board array and displays it onto the users screen
+     *
+     */
     private static void display()
     {
         System.out.println();
@@ -86,6 +97,11 @@ public class Main
 
 
     }
+
+    /**
+     * This code assigns the value of the whole board to be " "
+     *
+     */
     private static void clearBoard() // sets all the board elements to a space
     {
         for(int row=0; row < ROW; row++)
@@ -96,6 +112,14 @@ public class Main
             }
         }
     }
+
+    /**
+     * This code determines if the move being attemted is valid or if the space is occupied.
+     *
+     * @param row the row the move is in
+     * @param col the column the move is in
+     * @return A true or a false depending on if it is valid
+     */
     private static boolean isValidMove(int row, int col)
     {
         boolean retVal = false;
@@ -104,6 +128,12 @@ public class Main
         return retVal;
     }
 
+
+    /**
+     *
+     * @param player  player is the tpe of player currently playing X or O
+     * @return returns a true if they have won or a false if not
+     */
     private static boolean isWin(String player)
     {
         if(isColWin(player) || isRowWin(player) || isDiagnalWin(player))
@@ -113,6 +143,12 @@ public class Main
         return false;
     }
 
+    /**
+     * This is the code that determines if there is a win in one of the colums
+     *
+     * @param player player is the tpe of player currently playing X or O
+     * @return returns a true if it is true or false if it is false
+     */
     private static boolean isRowWin(String player)
     {
         for(int row = 0; row < ROW; row++)
@@ -125,6 +161,12 @@ public class Main
         return false; //no row win
     }
 
+    /**
+     * This is the code that determines if there is a win in one of the colums
+     *
+     * @param player player is the tpe of player currently playing X or O
+     * @return returns a true if it is true or false if it is false
+     */
     private static boolean isColWin(String player)
     {
         for(int col = 0; col < COL; col++)
@@ -138,6 +180,11 @@ public class Main
     }
 
 
+    /**
+     * This is the code to determine if there is either of the two types of diagonal win in the program.
+     * @param player player is the tpe of player currently playing X or O
+     * @returnr returns a true if it is true or false if it is false
+     */
     private static boolean isDiagnalWin(String player)
     {
 
@@ -152,6 +199,12 @@ public class Main
         return false; //no row win
     }
 
+    /**
+     * This is a method to calculate if there is a tie in the moves
+     *
+     * @param moveCounter This brings in the counter moveCounter so the program can know how many moves have been made.
+     * @return
+     */
     private static boolean isTie(int moveCounter)
     {
         if (moveCounter == 9)
