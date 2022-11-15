@@ -16,12 +16,13 @@ public class Main
 
 
 
-        do
+        do // This do while loop enables the code to be played again before launching the code again
         {
             clearBoard();
             display();
+            moveCounter = 0;
             System.out.println("In this game you will make moves in the (column, row) formula counting up with the origin in the top left");
-            do
+            do // This code determines if the current game is done.
             {
                 playerMove(in,player);
                 display();
